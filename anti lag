@@ -1,0 +1,46 @@
+
+
+
+spawn(function()
+--	while task.wait() do
+		for _,v in pairs(workspace:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("Part") then
+				if v:IsA("Basepart") or v:IsA("Part") then
+					if not v.Material == Enum.Material.SmoothPlastic then
+						v.Material = Enum.Material.SmoothPlastic
+						end
+					end
+				end
+			end
+	--	end
+	end)
+
+
+spawn(function()
+--	while task.wait(1) do
+		for _,v in pairs(workspace:GetDescendants()) do
+			if v:IsA("Texture") or v:IsA("Decal") then
+				v:Destroy()
+				end
+			end
+--		end
+	end)
+
+
+spawn(function()
+--	while task.wait(1) do
+		for _,v in pairs(workspace:GetDescendants()) do
+			if v:IsA("MeshPart") then
+				if v.TextureID then
+					v.TextureID = "0"
+				if v.MeshId then
+					v.MeshId = "0"
+				if not v.Material == Enum.Material.SmoothPlastic then
+					v.Material = Enum.Material.SmoothPlastic
+					end
+				end
+			end
+		end
+--	end
+end
+end)
