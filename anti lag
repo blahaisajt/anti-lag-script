@@ -1,46 +1,38 @@
+-- Anti lag for u by the one and only noober
+--@lego#4958
 
-
-
-spawn(function()
---	while task.wait() do
+function ClearLag()
+	print'Attempt to clear lag made'
+	
+	spawn(function()
 		for _,v in pairs(workspace:GetDescendants()) do
-			if v:IsA("BasePart") or v:IsA("Part") then
-				if v:IsA("Basepart") or v:IsA("Part") then
-					if not v.Material == Enum.Material.SmoothPlastic then
-						v.Material = Enum.Material.SmoothPlastic
-						end
-					end
-				end
-			end
-	--	end
-	end)
-
-
-spawn(function()
---	while task.wait(1) do
-		for _,v in pairs(workspace:GetDescendants()) do
-			if v:IsA("Texture") or v:IsA("Decal") then
-				v:Destroy()
-				end
-			end
---		end
-	end)
-
-
-spawn(function()
---	while task.wait(1) do
-		for _,v in pairs(workspace:GetDescendants()) do
-			if v:IsA("MeshPart") then
-				if v.TextureID then
-					v.TextureID = "0"
-				if v.MeshId then
-					v.MeshId = "0"
-				if not v.Material == Enum.Material.SmoothPlastic then
-					v.Material = Enum.Material.SmoothPlastic
-					end
-				end
+			if v:IsA'Basepart' or v:IsA'Part' or v:IsA'MeshPart' then
+				v.Material = Enum.Material.SmoothPlastic
 			end
 		end
---	end
+	end)
+
+	spawn(function()
+		for _,v in pairs(workspace:GetDescendants()) do
+			if v:IsA'Texture' or v:IsA'Decal' then
+				v:Destroy()
+			end
+		end
+	end)
 end
+
+ClearLag()
+
+workspace.ChildAdded:Connect(function(Child)
+	print(Child.Name, " has been added to workspace")
+	if Child:IsA'BasePart' or Child:IsA'Part' or Child:IsA'MeshPart' then
+		Child.Material = Enum.Material.SmoothPlastic
+	else
+		if Child:IsA'Texture' or Child:IsA'Decal' then
+			Child:Destroy()
+		end
+	end
 end)
+
+
+--Loadstring version: loadstring(game:httpGet("https://raw.githubusercontent.com/blahaisajt/anti-lag-script/main/anti%20lag"),true)()
