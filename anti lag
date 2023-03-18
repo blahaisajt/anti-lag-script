@@ -1,38 +1,34 @@
 -- Anti lag for u by the one and only noober
 --@lego#4958
+--Loadstring: loadstring(game:httpGet("https://raw.githubusercontent.com/blahaisajt/anti-lag-script/main/anti%20lag"),true)()
 
-function ClearLag()
-	print'Attempt to clear lag made'
-	
+function a()
 	spawn(function()
 		for _,v in pairs(workspace:GetDescendants()) do
-			if v:IsA'Basepart' or v:IsA'Part' or v:IsA'MeshPart' then
+			if v:IsA("Basepart") or v:IsA("Part") or v:IsA("MeshPart") then
 				v.Material = Enum.Material.SmoothPlastic
 			end
 		end
 	end)
-
 	spawn(function()
 		for _,v in pairs(workspace:GetDescendants()) do
-			if v:IsA'Texture' or v:IsA'Decal' then
+			if v:IsA("Texture") or v:IsA("Decal") then
 				v:Destroy()
 			end
 		end
 	end)
 end
-
-ClearLag()
-
+a()
 workspace.ChildAdded:Connect(function(Child)
-	print(Child.Name, " has been added to workspace")
-	if Child:IsA'BasePart' or Child:IsA'Part' or Child:IsA'MeshPart' then
+	
+	if Child:IsA("BasePart") or Child:IsA("Part") or Child:IsA("MeshPart") then
 		Child.Material = Enum.Material.SmoothPlastic
-	else
-		if Child:IsA'Texture' or Child:IsA'Decal' then
+	elseif Child:IsA("Texture") or Child:IsA("Decal") then
 			Child:Destroy()
 		end
 	end
 end)
 
 
---Loadstring version: loadstring(game:httpGet("https://raw.githubusercontent.com/blahaisajt/anti-lag-script/main/anti%20lag"),true)()
+
+
